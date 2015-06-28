@@ -6,3 +6,6 @@
   <strong>Text:</strong>
   <%= @article.text %>
 </p>
+<% if current_user.try(:admin) %>
+  <%= link_to 'Edit', edit_article_path %>
+<% end %>

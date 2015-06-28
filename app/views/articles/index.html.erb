@@ -9,7 +9,10 @@
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
+      <td><%= link_to 'link', article %></td>
     </tr>
   <% end %>
 </table>
-<%= link_to "Create", new_article_path %>
+<% if current_user.try(:admin?) %>
+  <%= link_to "New article", new_article_path %>
+<% end %>
