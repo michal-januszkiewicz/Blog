@@ -1,0 +1,14 @@
+<% provide(:title, @user.email) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <p>
+        name: <%= @user.name %>
+      </p>
+      <p>
+        email: <%= @user.email %>
+      </p>
+      <%= link_to 'Edit', edit_user_registration_path %>
+    </section>
+  </aside>
+</div>

@@ -3,5 +3,6 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
+    @admins = User.where(admin: true)
   end
 end
