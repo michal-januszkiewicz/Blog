@@ -1,5 +1,13 @@
 <% provide(:title, "Contact") %>
-<h1>Contact</h1>
-<% @admins.each do |admin| %>
-  <p>email: <%= admin.email %></p>
-<% end %>
+<div class="row">
+  <div class="col-md-8">
+    <h2>Contact</h2>
+    <p>
+      If you see any issues on the page, have some suggestions about it or maybe
+      you would like to ask me some questions, please feel free to send me an email.
+    </p>
+    <% @admins.each do |admin| %>
+      <p>email: <%= admin.email %></p>
+    <% end %>
+  </div>
+</div>

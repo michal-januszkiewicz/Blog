@@ -1,18 +1,23 @@
 <% provide(:title, "Articles") %>
-<h1>Articles</h1>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'link', article %></td>
-    </tr>
-  <% end %>
-</table>
-<% if current_user.try(:admin?) %>
-  <%= link_to "New article", new_article_path %>
-<% end %>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Articles</h2>
+    <% if current_user.try(:admin?) %>
+      <%= link_to "New article", new_article_path, class: "new-article-link" %>
+    <% end %>
+    <% @articles.each do |article| %>
+
+      <div class="article">
+        <h3><%= article.title %></h3>
+        <p><%= article.text %></p>
+        <%= link_to 'read', article %>
+        <% if current_user.try(:admin?) %>
+          <%= link_to " | edit", edit_article_path(article.id) %>
+          <%= link_to " | delete", article, method: :delete,
+                      data: { confirm: "You sure?" } %>
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

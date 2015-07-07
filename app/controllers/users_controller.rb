@@ -9,10 +9,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     unless @user == current_user || current_user.admin?
-      redirect_to root_url, alert: "Access denied."
+      flash[:danger] = "Access denied."
+      redirect_to root_url
     end
   end
 
   def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
   end
 end

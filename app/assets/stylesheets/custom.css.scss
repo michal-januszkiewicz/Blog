@@ -1,32 +1,107 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: 		  border-box;
+$input_color: #E0EDF3;
+
+body {
+  background-color: #393939;
+  color: lightblue;
 }
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
+textarea {
+  height: auto;
 }
 
-input {
-  height: auto !important;
+.login-form, .register-form{
+  padding: 0;
+  margin: 0 auto;
 }
 
-.login-form h2 {
-  text-align: center;
+.login-form .form-control, .register-form .form-control, .edit-user-form .form-control,
+  .reset-password-form .form-control, .change-password-form .form-control {
+  position: relative;
+  height: 50px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 16px;
+  border-color: black;
+}
+.login-form .form-control:focus, .register-form .form-control:focus {
+  z-index: 2;
+}
+
+.login-form {
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px $input_color inset;
+  }
+  input {
+    outline: none !important;
+    background-color: $input_color;
+    border-radius: 0 !important;
+  }
+  input[type="text"] {
+    margin-bottom: -1px;
+  }
+  input[type="submit"] {
+    margin-top: 20px;
+    background-color: #3366FF;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.register-form, .edit-user-form {
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px $input_color inset;
+  }
+  input {
+    outline: none;
+    background-color: $input_color;
+    border-radius: 0 !important;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+    margin-bottom: -1px;
+  }
+  input[type="submit"] {
+    margin-top: 20px;
+    background-color: #3366FF;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+
+.reset-password-form, .change-password-form {
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px $input_color inset;
+  }
+  input {
+    outline: none !important;
+    background-color: $input_color;
+    border-radius: 0 !important;
+  }
+  input[type="submit"] {
+    margin-top: 20px !important;
+    background-color: #3366FF;
+    margin-bottom: 20px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 
 .checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
   span {
     margin-left: 20px;
     font-weight: normal;
@@ -37,3 +112,101 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+.edit-article-form .form-control{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  //font-size: 16px;
+  position: relative;
+}
+
+.edit-article-form, .new-article-form {
+  input[type="text"], textarea {
+    background-color: $input_color;
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+    background-color: #3366FF;
+  }
+}
+
+
+/* links */
+
+.login-links, .register-links, .reset-password-links {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* debug */
+
+.debug_dump {
+  margin-top: 40px;
+  background-color: #6e6e6e;
+  color: #EFEFEF;
+  border-color: black;
+}
+
+/* navbar */
+
+#myNavbar {
+
+}
+
+a:hover {
+  color: #33CCFF !important;
+}
+
+.nav-link {
+  color: #0099FF !important;
+  font-family: Lato, sans-serif !important;
+  font-size: 15px;
+  i {
+    color: $input_color !important;
+    font-size: 12px;
+  }
+}
+
+.site-name {
+  color: $input_color !important;
+  font-family: Helvetica, sans-serif !important;
+  font-size: 25px;
+}
+
+.nav-link:hover {
+  color: #33CCFF !important;
+}
+
+/*flash*/
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-alert {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+

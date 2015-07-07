@@ -7,35 +7,39 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to 'The Blog', root_path, class: 'navbar-brand' %>
+        <%= link_to 'The Blog', root_path, class: 'navbar-brand site-name nav-link' %>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'Articles', articles_path %></li>
+          <li><%= link_to 'Home', root_path, class: 'nav-link home-link' %></li>
+          <li><%= link_to 'Articles', articles_path, class: 'nav-link articles-link' %></li>
           <% if current_user.try(:admin) %>
-            <li><%= link_to 'Users', users_path %></li>
+            <li><%= link_to 'Users', users_path, class: 'nav-link users-link' %></li>
           <% end %>
-          <li><%= link_to 'Contact', contact_path %></li>
+          <li><%= link_to 'Contact', contact_path, class: 'nav-link contact-link' %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
               <li>
-                <%= link_to ' My account', user_path(current_user.id),
-                            class: 'glyphicon glyphicon-user' %>
+                <%= link_to '<i class="glyphicon glyphicon-user"></i> My account'.html_safe,
+                            user_path(current_user.id),
+                            class: 'nav-link my-account-link' %>
               </li>
               <li>
-                <%= link_to ' Sign out', destroy_user_session_path, :method=>'delete',
-                            class: 'glyphicon glyphicon-log-out' %>
+                <%= link_to '<i class="glyphicon glyphicon-log-out"></i> Log out'.html_safe,
+                            destroy_user_session_path, :method=>'delete',
+                            class: 'nav-link logout-link' %>
               </li>
           <% else %>
               <li>
-                <%= link_to ' Sign up', new_user_registration_path,
-                            class: 'glyphicon glyphicon-user' %>
+                <%= link_to '<i class="glyphicon glyphicon-user"></i> Create account'.html_safe,
+                            new_user_registration_path,
+                            class: 'nav-link create-account-link' %>
               </li>
               <li>
-                <%= link_to ' Log in', new_user_session_path,
-                            class: 'glyphicon glyphicon-log-in' %>
+                <%= link_to '<i class="glyphicon glyphicon-log-in"></i> Log in'.html_safe,
+                            new_user_session_path,
+                            class: 'nav-link login-link' %>
               </li>
           <% end %>
         </ul>
