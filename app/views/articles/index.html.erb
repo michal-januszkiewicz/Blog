@@ -10,10 +10,10 @@
       <div class="article">
         <h3><%= article.title %></h3>
         <p><%= article.text %></p>
-        <%= link_to 'read', article %>
+        <%= link_to "read", article %>
         <% if current_user.try(:admin?) %>
-          <%= link_to " | edit", edit_article_path(article.id) %>
-          <%= link_to " | delete", article, method: :delete,
+          | <%= link_to "edit", edit_article_path(article.id) %>
+          | <%= link_to "delete", article, method: :delete,
                       data: { confirm: "You sure?" } %>
         <% end %>
       </div>

@@ -15,8 +15,10 @@ class ApplicationController < ActionController::Base
   private
     def require_admin
       unless current_user.try(:admin)
-        flash[:danger] = 'Sorry mate, you can\'t do this'
+        flash[:danger] = "Sorry mate, you can't do this"
         redirect_to root_url
       end
     end
+
+
 end

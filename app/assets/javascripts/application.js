@@ -12,5 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
+
+jQuery(document).ready(function() {
+
+    // Toggle add comment form.
+    jQuery(".comments-toggle").on("click", function() {
+        jQuery(".comments-list").toggle();
+    });
+
+});

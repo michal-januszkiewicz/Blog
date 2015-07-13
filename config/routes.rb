@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :articles
+
+  resources :articles do
+    resources :comments, only: [:edit, :create, :update, :destroy]
+  end
+
   root 'static_pages#home'
   get  'contact' => 'static_pages#contact'
 

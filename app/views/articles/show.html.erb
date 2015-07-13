@@ -1,14 +1,41 @@
 <% provide(:title, "Article") %>
-  <h2>
-    <%= @article.title %>
-  </h2>
+<h2>
+  <%= @article.title %>
+</h2>
 <p>
   <%= @article.text %>
 </p>
 <% if current_user.try(:admin) %>
   <%= link_to "edit", edit_article_path %>
-  <% if current_user.try(:admin?) %>
-    <%= link_to " | delete", @article, method: :delete,
-              data: { confirm: "You sure?" } %>
-  <% end %>
+  | <%= link_to "delete", @article, method: :delete,
+                data: { confirm: "You sure?" } %>
 <% end %>
+
+<div class="row comments">
+  <div class="col-md-10">
+    <h3><a class="comments-toggle" href="#">Comments<span class="caret"></span></a></h3>
+
+    <div class="comments-list">
+      <% if @article.comments.size > 0 %>
+        <% @article.comments.each do |comment| %>
+          <h4><%= comment.user.name %>:</h4>
+          <p>
+            <%= comment.content %>
+          </p>
+          <% if comment.user.id == current_user.try(:id) || current_user.try(:admin) %>
+            <%= link_to "edit", edit_article_comment_path(@article.id, comment.id) %>
+            | <%= link_to "delete", article_comment_path(@article.id, comment.id),
+                          method: :delete, data: { confirm: "You sure?" } %>
+          <% end %>
+          <hr>
+        <% end %>
+      <% end %>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class="add-comment">
+        <%= render "comments/new" %>
+      </div>
+    <% end %>
+  </div>
+</div>

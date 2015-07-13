@@ -9,7 +9,14 @@
     <%= @user.email %>
   </div>
   <div class="col-md-4">
-    <%= link_to "edit", edit_user_registration_path %>
-    | <%= link_to "delete", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %>
+    <% if @user.id == current_user.id %>
+      <%= link_to "edit", edit_user_registration_path %>
+      | <%= link_to "delete", registration_path(current_user),
+                    data: { confirm: "Are you sure?" }, method: :delete %>
+    <% else %>
+      <%= link_to "delete", registration_path(current_user),
+                  data: { confirm: "Are you sure?" }, method: :delete %>
+    <% end %>
+
   </div>
 </div>
