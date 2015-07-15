@@ -18,7 +18,8 @@
 jQuery(document).ready(function() {
 
     // Toggle add comment form.
-    jQuery(".comments-toggle").on("click", function() {
+    jQuery(".comments-toggle").on("click", function(e) {
+        e.preventDefault();
         jQuery(".comments-list").toggle();
     });
 
