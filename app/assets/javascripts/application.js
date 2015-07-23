@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 // require turbolinks
+//= require jquery.autosize
 //= require_tree .
 
 jQuery(document).ready(function() {
@@ -22,5 +23,7 @@ jQuery(document).ready(function() {
         e.preventDefault();
         jQuery(".comments-list").toggle();
     });
+
+    jQuery(".comment-text-area").autosize();
 
 });

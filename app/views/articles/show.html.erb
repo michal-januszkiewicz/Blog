@@ -1,57 +1,45 @@
 <% provide(:title, "Article") %>
+<%# link_to "Back", articles_path %>
 <div class="article">
   <h1>
     <%= @article.title %>
   </h1>
-  <p>
-    <%= @article.text.html_safe %>
-  </p>
+  <div class="article-date">
+    <p>
+      Submitted: <%= @article.created_at.to_formatted_s(:long) %>
+    </p>
+  </div>
+  <%= simple_format(@article.text) %>
+  <div class="article-content">
+  </div>
 
   <% if current_user.try(:admin) %>
-    <div class="btn-group">
-      <%= link_to "edit", edit_article_path, class: "btn btn-primary btn-sm" %>
-      <%= link_to "delete", @article, class: "btn btn-primary btn-sm", method: :delete,
+    <div class="row">
+      <div class="btn-group col-md-3 article-edit-delete">
+        <%= link_to "Edit", edit_article_path, class: "btn btn-primary btn-sm btn-article" %>
+        <%= link_to "Delete", @article, class: "btn btn-primary btn-sm btn-article", method: :delete,
                     data: { confirm: "You sure?" } %>
+      </div>
     </div>
   <% end %>
 
 </div>
 
-<div class="row comments">
-  <div class="col-md-12">
-    <h3><a class="comments-toggle" href="#">Comments<span class="caret"></span></a></h3>
+<h2 class="comments-header">
+  <a class="comments-toggle" href="#">
+    <%= @article.comments.count %> Comments<span class="caret"></span>
+  </a>
+</h2>
+<hr/>
 
-    <div class="comments-list">
-      <% if @article.comments.size > 0 %>
-        <% @article.comments.each do |comment| %>
-          <div class="comment">
-            <p>
-              <%= simple_format(comment.content) %>
-            </p>
-            <div class="comment-info">
-              <p>Submitted on <b><%= comment.created_at.to_formatted_s(:long) %></b>
-                by <%= comment.user.name %></p>
-            </div>
-            <div class="btn-group-vertical">
-              <% if comment.user.id == current_user.try(:id) || current_user.try(:admin) %>
-                <%= link_to "edit", edit_article_comment_path(@article.id, comment.id),
-                            class: "btn btn-primary btn-sm" %>
-                <%= link_to "delete", article_comment_path(@article.id, comment.id),
-                            class: "btn btn-primary btn-sm",
-                            method: :delete,
-                            data: { confirm: "You sure?" } %>
-              <% end %>
-            </div>
-            <hr>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <% if user_signed_in? %>
-      <div class="add-comment">
-        <%= render "comments/new" %>
-      </div>
-    <% end %>
-  </div>
+<div id="comments" class="comments-list">
+  <%= render @article.comments %>
 </div>
+
+<% if user_signed_in? %>
+  <div class="row add-comment">
+    <div class="col-md-12">
+      <%= render "comments/form" %>
+    </div>
+  </div>
+<% end %>

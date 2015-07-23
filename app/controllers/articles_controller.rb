@@ -3,14 +3,17 @@ class ArticlesController < ApplicationController
   before_action :current_article, only: [:edit, :update]
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order('created_at DESC')
+    @comment  = Comment.new
   end
 
   def show
-    @article  = Article.find(params[:id])
+    @article = Article.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
+    @article = Article.new
   end
 
   def edit

@@ -1,0 +1,29 @@
+<div class="row comment">
+  <div class="col-md-12">
+    <p>
+      <%= simple_format(comment.content) %>
+    </p>
+  </div>
+  <div class="col-md-9">
+    <div class="comment-info">
+      <p>
+        Submitted by <b><%= comment.user.name %></b>,
+        <%= comment.created_at.to_formatted_s(:long) %>
+        <% if comment.created_at != comment.updated_at %>
+          , last update: <%= comment.updated_at.to_formatted_s(:long) %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <% if comment.user.id == current_user.try(:id) || current_user.try(:admin) %>
+    <div class="btn-group col-md-3 comment-edit-delete" >
+      <%= link_to "Edit", edit_article_comment_path(@article.id, comment.id),
+                  class: "btn btn-primary btn-sm btn-comment" %>
+      <%= link_to "Delete", article_comment_path(@article.id, comment.id),
+                  class: "btn btn-primary btn-sm btn-comment",
+                  method: :delete,
+                  data: { confirm: "You sure?" } %>
+    </div>
+  <% end %>
+</div>
+<hr>

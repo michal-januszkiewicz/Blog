@@ -1,23 +1,44 @@
 <% provide(:title, "Articles") %>
-<div class="row">
-  <div class="col-md-12">
-    <h2>Articles</h2>
-    <% if current_user.try(:admin?) %>
-      <%= link_to "New article", new_article_path, class: "new-article-link" %>
-    <% end %>
+<div class="articles-list">
+    <h1>Articles
+      <% if current_user.try(:admin?) %>
+        <%= link_to "New article", new_article_path, class: "new-article-link btn btn-primary" %>
+      <% end %>
+    </h1>
     <% @articles.each do |article| %>
 
       <div class="article">
-        <h3><%= article.title %></h3>
-        <p><%= article.text.html_safe %></p>
-        <%= link_to "read", article %>
+        <h2><%= link_to article.title, article %></h2>
+        <div class="article-date">
+          <p>
+            Submitted: <%= article.created_at.to_formatted_s(:long) %>
+          </p>
+        </div>
+        <div class="article-content">
+            <%= simple_format(article.text) %>
         <% if current_user.try(:admin?) %>
-          | <%= link_to "edit", edit_article_path(article.id) %>
-          | <%= link_to "delete", article, method: :delete,
-                      data: { confirm: "You sure?" } %>
+          <div class="row">
+            <div class="btn-group article-list-links col-md-3">
+              <%= link_to "Read", article,
+                          class: "btn btn-primary btn-sm btn-articles-list" %>
+              <%= link_to "Edit", edit_article_path(article.id),
+                          class: "btn btn-primary btn-sm btn-articles-list" %>
+              <%= link_to "Delete", article, class: "btn btn-primary btn-sm btn-articles-list",
+                          method: :delete,
+                          data: { confirm: "You sure?" } %>
+            </div>
+          </div>
+          <% else %>
+          <div class="row">
+            <div class="article-list-links col-md-3">
+              <%= link_to "Read", article,
+                          class: "btn btn-primary btn-sm btn-articles-list" %>
+            </div>
+          </div>
         <% end %>
+        </div>
+        <hr>
       </div>
 
     <% end %>
   </div>
-</div>

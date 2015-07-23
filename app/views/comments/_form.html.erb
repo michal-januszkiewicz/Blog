@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12">
+    <% if @comment.errors.any? %>
+      <div id="errors">
+        <p>
+          <%= pluralize(@comment.errors.count, "error") %> prevented this article from saving
+        </p>
+        <ul>
+          <% @comment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form_for ([@article, @article.comments.build]),
+                 html: {class: "new-comment-form"} do |f| %>
+      <p>
+        <%= f.label :content, class: "sr-only" %>
+        <%= f.text_area :content, class: "form-control comment-text-area", rows: "3",
+                        placeholder: "Add your comment here" %>
+      </p>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <p>
+        <%= f.submit "Add", class: "btn btn-primary" %>
+      </p>
+    <% end %>
+  </div>
+</div>

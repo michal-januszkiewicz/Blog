@@ -6,6 +6,7 @@ $input_color: #E0EDF3;
 body {
   background-color: #393939;
   color: lightblue;
+  padding-top: 70px;
 }
 
 /* forms */
@@ -47,7 +48,6 @@ textarea {
   }
   input[type="submit"] {
     margin-top: 20px;
-    background-color: #3366FF;
   }
   h2 {
     text-align: center;
@@ -69,7 +69,6 @@ textarea {
   }
   input[type="submit"] {
     margin-top: 20px;
-    background-color: #3366FF;
   }
   h2 {
     text-align: center;
@@ -89,7 +88,6 @@ textarea {
   }
   input[type="submit"] {
     margin-top: 20px !important;
-    background-color: #3366FF;
     margin-bottom: 20px;
   }
   h2 {
@@ -120,7 +118,6 @@ textarea {
 
   input[type="submit"] {
     margin-top: 20px;
-    background-color: #3366FF;
   }
 }
 
@@ -131,18 +128,10 @@ textarea {
 
   input[type="submit"] {
     margin-top: 10px;
-    background-color: #3366FF;
   }
 }
 
 
-/* links */
-
-.login-links, .register-links, .reset-password-links {
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
 
 /* debug */
 
@@ -164,7 +153,7 @@ a:hover {
 }
 
 .nav-link {
-  color: #0099FF !important;
+  color: #66C2FF !important;
   font-family: Lato, sans-serif !important;
   font-size: 15px;
   i {
@@ -180,7 +169,7 @@ a:hover {
 }
 
 .nav-link:hover {
-  color: #33CCFF !important;
+  color: #5CD6FF !important;
 }
 
 /*flash*/
@@ -213,18 +202,6 @@ a:hover {
   text-align: left;
 }
 
-/* Articles */
-
-.add-comment {
-
-}
-
-.comments-toggle:visited, .comments-toggle:hover, .comments-toggle:active,
-  .comments-toggle:link {
-
-  color: inherit;
-  text-decoration: none;
-}
 
 hr {
   border-color: $input_color  ;
@@ -232,8 +209,47 @@ hr {
 
 /* article and comments */
 
+.articles-list {
+  h1 {
+    margin-bottom: 50px;
+  }
+}
+
+.comments-header {
+  margin-top: 80px;
+}
+
+.comments-toggle:visited, .comments-toggle:hover, .comments-toggle:active,
+  .comments-toggle:link {
+  color: #66C2FF;
+  text-decoration: none;
+}
+
+.article-date {
+
+  margin-bottom: 30px;
+  font-size: 13px;
+  //float: right;
+}
+
 .article {
-  font-size: 18px;
+  margin-top: 30px;
+  font-size: 15px;
+  h1 {
+    color: #66C2FF;
+  }
+  h2 {
+    a:visited, a:hover, a:active,
+    a:link {
+      color: #66C2FF;
+      //color: lightblue;
+      text-decoration: none;
+    }
+  }
+}
+
+.article-content {
+  margin-top: 20px;
 }
 
 .comments {
@@ -244,10 +260,67 @@ hr {
 }
 
 .comment {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .comment-info {
   font-size: 12px;
+  margin-top: 10px;
 }
 
+.comment-edit-delete {
+ margin-top: 10px;
+}
+
+.article-edit-delete {
+  margin-top: 20px;
+}
+
+.article-list-links  {
+  margin-top: 20px;
+}
+
+.comment-text-area {
+  max-height: 200px;
+}
+
+/* buttons */
+
+.btn {
+  background-color: #3366FF !important;
+}
+
+.btn:hover {
+  color: white !important;
+  background-color: #2E5CE6 !important;
+}
+
+.btn-comment {
+  width: 50%;
+}
+
+.btn-article {
+  width: 50%;
+}
+
+
+/* links */
+
+.login-links, .register-links, .reset-password-links {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.new-article-link {
+  float: right;
+}
+
+/* static pages */
+.home-page {
+  font-size: 15px;
+}
+
+.contact-page {
+  font-size: 15px;
+}
