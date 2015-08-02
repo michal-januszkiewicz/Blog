@@ -16,6 +16,7 @@ gem 'bootstrap-will_paginate',		'0.0.10'
 gem 'bcrypt'
 gem 'devise'
 gem 'autosize', '~> 1.1.18.4'
+gem 'best_in_place'
 
 group :development, :test do
   gem 'byebug'

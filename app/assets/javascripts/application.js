@@ -14,9 +14,19 @@
 //= require jquery_ujs
 // require turbolinks
 //= require jquery.autosize
+//= require jquery.purr
 //= require_tree .
+//= require best_in_place
 
 jQuery(document).ready(function() {
+
+    $('.best_in_place').best_in_place();
+
+    $('.edit-comment').on('click', function(e) {
+        e.preventDefault();
+        $(this).parents('.comment').children().children('div > .best_in_place').click();
+
+    });
 
     // Toggle add comment form.
     jQuery(".comments-toggle").on("click", function(e) {

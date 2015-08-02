@@ -1,9 +1,8 @@
 <% provide(:title, "New article") %>
 <div class="row">
   <div class="col-md-12">
-    <h2>Create new article</h2>
     <% if @article.errors.any? %>
-      <div id="errors">
+      <div class="alert-error alert">
         <p>
           <%= pluralize(@article.errors.count, "error") %> prevented this article from saving
         </p>
@@ -14,6 +13,7 @@
         </ul>
       </div>
     <% end %>
+    <h2>Create new article</h2>
     <%= form_for :article, url: articles_path, html: {class: "new-article-form"} do |f| %>
       <p>
         <%= f.label :title %><br>

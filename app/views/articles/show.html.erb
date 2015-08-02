@@ -1,45 +1,49 @@
 <% provide(:title, "Article") %>
 <%# link_to "Back", articles_path %>
-<div class="article">
-  <h1>
-    <%= @article.title %>
-  </h1>
-  <div class="article-date">
-    <p>
-      Submitted: <%= @article.created_at.to_formatted_s(:long) %>
-    </p>
-  </div>
-  <%= simple_format(@article.text) %>
-  <div class="article-content">
-  </div>
-
-  <% if current_user.try(:admin) %>
-    <div class="row">
-      <div class="btn-group col-md-3 article-edit-delete">
-        <%= link_to "Edit", edit_article_path, class: "btn btn-primary btn-sm btn-article" %>
-        <%= link_to "Delete", @article, class: "btn btn-primary btn-sm btn-article", method: :delete,
-                    data: { confirm: "You sure?" } %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="article">
+      <h1>
+        <%= @article.title %>
+      </h1>
+      <div class="article-date">
+        <p>
+          Submitted: <%= @article.created_at.to_formatted_s(:long) %>
+        </p>
       </div>
+      <%= simple_format(@article.text) %>
+      <div class="article-content">
+      </div>
+
+      <% if current_user.try(:admin) %>
+        <div class="row">
+          <div class="btn-group col-md-3 article-edit-delete">
+            <%= link_to "Edit", edit_article_path, class: "btn btn-primary btn-sm btn-article" %>
+            <%= link_to "Delete", @article, class: "btn btn-primary btn-sm btn-article", method: :delete,
+                        data: { confirm: "You sure?" } %>
+          </div>
+        </div>
+      <% end %>
+
     </div>
-  <% end %>
 
-</div>
+    <h2 class="comments-header">
+      <a class="comments-toggle" href="#">
+        <%= @article.comments.count %> Comments<span class="caret"></span>
+      </a>
+    </h2>
+    <hr/>
 
-<h2 class="comments-header">
-  <a class="comments-toggle" href="#">
-    <%= @article.comments.count %> Comments<span class="caret"></span>
-  </a>
-</h2>
-<hr/>
-
-<div id="comments" class="comments-list">
-  <%= render @article.comments %>
-</div>
-
-<% if user_signed_in? %>
-  <div class="row add-comment">
-    <div class="col-md-12">
-      <%= render "comments/form" %>
+    <div id="comments" class="comments-list">
+      <%= render @article.comments %>
     </div>
+
+    <% if user_signed_in? %>
+      <div class="row add-comment">
+        <div class="col-md-12">
+          <%= render "comments/form" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

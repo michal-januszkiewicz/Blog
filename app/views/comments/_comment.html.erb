@@ -1,8 +1,11 @@
 <div class="row comment">
   <div class="col-md-12">
-    <p>
-      <%= simple_format(comment.content) %>
-    </p>
+      <%= best_in_place [@article, comment], :content , as: :textarea,
+                        display_with: :simple_format,
+                        ok_button:           "Save",
+                        ok_button_class:     "btn btn-primary btn-sm btn-comment ok-cancel-comment",
+                        cancel_button:       "Cancel",
+                        cancel_button_class: "btn btn-primary btn-sm btn-comment ok-cancel-comment" %>
   </div>
   <div class="col-md-9">
     <div class="comment-info">
@@ -18,7 +21,7 @@
   <% if comment.user.id == current_user.try(:id) || current_user.try(:admin) %>
     <div class="btn-group col-md-3 comment-edit-delete" >
       <%= link_to "Edit", edit_article_comment_path(@article.id, comment.id),
-                  class: "btn btn-primary btn-sm btn-comment" %>
+                  class: "btn btn-primary btn-sm btn-comment edit-comment" %>
       <%= link_to "Delete", article_comment_path(@article.id, comment.id),
                   class: "btn btn-primary btn-sm btn-comment",
                   method: :delete,
@@ -26,4 +29,12 @@
     </div>
   <% end %>
 </div>
-<hr>
+<% if @article.comments.last.id == comment.id %>
+ <hr>
+<% else %>
+  <div class="row comment-hr">
+    <div class="col-md-12">
+      <hr>
+    </div>
+  </div>
+<% end %>

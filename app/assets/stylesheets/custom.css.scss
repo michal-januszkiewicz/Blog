@@ -12,7 +12,10 @@ body {
 /* forms */
 
 textarea {
+  background-color: $input_color;
+  color: #555555;
   height: auto;
+  width: 100%;
 }
 
 .login-form, .register-form{
@@ -172,30 +175,16 @@ a:hover {
   color: #5CD6FF !important;
 }
 
-/*flash*/
+/*flash and errors*/
 
-.alert-error {
+.alert-error, .alert-alert {
   background-color: #f2dede;
   border-color: #eed3d7;
   color: #b94a48;
   text-align: left;
 }
 
-.alert-alert {
-  background-color: #f2dede;
-  border-color: #eed3d7;
-  color: #b94a48;
-  text-align: left;
-}
-
-.alert-success {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
-  text-align: left;
-}
-
-.alert-notice {
+.alert-success, .alert-notice {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #468847;
@@ -221,7 +210,7 @@ hr {
 
 .comments-toggle:visited, .comments-toggle:hover, .comments-toggle:active,
   .comments-toggle:link {
-  color: #66C2FF;
+  color: #94D4FF;
   text-decoration: none;
 }
 
@@ -236,12 +225,12 @@ hr {
   margin-top: 30px;
   font-size: 15px;
   h1 {
-    color: #66C2FF;
+    color: #94D4FF;
   }
   h2 {
     a:visited, a:hover, a:active,
     a:link {
-      color: #66C2FF;
+      color: #94D4FF;
       //color: lightblue;
       text-decoration: none;
     }
@@ -261,6 +250,7 @@ hr {
 
 .comment {
   font-size: 15px;
+  margin-left: 10px;
 }
 
 .comment-info {
@@ -272,6 +262,10 @@ hr {
  margin-top: 10px;
 }
 
+.comment-hr{
+  margin-left: 10px;
+}
+
 .article-edit-delete {
   margin-top: 20px;
 }
@@ -281,7 +275,11 @@ hr {
 }
 
 .comment-text-area {
-  max-height: 200px;
+  max-height: 400px;
+}
+
+.purr {
+  background-color: #474747;
 }
 
 /* buttons */
@@ -301,6 +299,10 @@ hr {
 
 .btn-article {
   width: 50%;
+}
+
+.ok-cancel-comment {
+  width: 12%;
 }
 
 
@@ -323,4 +325,8 @@ hr {
 
 .contact-page {
   font-size: 15px;
+}
+
+input[type="submit"] {
+  color: $input_color;
 }

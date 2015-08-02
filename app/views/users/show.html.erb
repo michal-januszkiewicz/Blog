@@ -1,22 +1,31 @@
 <% provide(:title, @user.email) %>
-<h2>Your account</h2>
-<%= render partial: "table_header", locals: {user_group: ""} %>
 <div class="row">
-  <div class="col-md-4">
-    <%= @user.name %>
-  </div>
-  <div class="col-md-4">
-    <%= @user.email %>
-  </div>
-  <div class="col-md-4">
-    <% if @user.id == current_user.id %>
-      <%= link_to "edit", edit_user_registration_path %>
-      | <%= link_to "delete", registration_path(current_user),
-                    data: { confirm: "Are you sure?" }, method: :delete %>
+  <div class="col-md-offset-1">
+    <% if current_user == @user %>
+      <h2>Your account</h2>
     <% else %>
-      <%= link_to "delete", registration_path(current_user),
-                  data: { confirm: "Are you sure?" }, method: :delete %>
+      <h2>User account</h2>
     <% end %>
 
+    <%= render partial: "table_header", locals: {user_group: ""} %>
+    <div class="row">
+      <div class="col-md-4">
+        <%= @user.name %>
+      </div>
+      <div class="col-md-4">
+        <%= @user.email %>
+      </div>
+      <div class="col-md-4">
+        <% if @user.id == current_user.id %>
+          <%= link_to "edit", edit_user_registration_path %>
+          | <%= link_to "delete", registration_path(current_user),
+                        data: { confirm: "Are you sure?" }, method: :delete %>
+        <% else %>
+          <%= link_to "delete", registration_path(current_user),
+                      data: { confirm: "Are you sure?" }, method: :delete %>
+        <% end %>
+
+      </div>
+    </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  respond_to :html, :json
   before_action :authenticate_user!, only: [:create]
   before_action :current_article,    only: [:create, :update, :destroy]
   before_action :current_comment,    only: [:edit, :update]
@@ -14,17 +15,20 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment created"
       redirect_to @article
     else
-      render 'articles/show', @article.id
-      # render "new"
+      render template: 'articles/show', id: @article.id
     end
   end
 
   def update
-    if @article.comments.find(@comment.id).update_attributes(comment_params)
-      flash[:success] = "Comment updated"
-      redirect_to @article
-    else
-      render "edit"
+    @comment = @article.comments.find(@comment.id)
+    respond_to do |format|
+      if @comment.update_attributes(comment_params)
+        format.html { redirect_to(@article, notice: "Comment updated") }
+        format.json { respond_with_bip(@comment)}
+      else
+        format.html { render action: "edit" }
+        format.json { respond_with_bip(@comment) }
+      end
     end
   end
 

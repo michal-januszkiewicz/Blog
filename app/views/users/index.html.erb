@@ -1,23 +1,27 @@
 <% provide(:title, 'All users') %>
 
-<h2>All users</h2>
-
-<%= will_paginate %>
-
-<%= render partial: "table_header", locals: { user_group: "Admins" } %>
 <div class="row">
-  <%= render @users.where(admin: true) %>
-</div>
+  <div class="col-md-offset-1">
+    <h2>All users</h2>
 
-<div class="row">
-  <div class="col-md-10">
-    <hr>
+    <%= will_paginate %>
+
+    <%= render partial: "table_header", locals: { user_group: "Admins" } %>
+    <div class="row">
+      <%= render @users.where(admin: true) %>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <hr>
+      </div>
+    </div>
+
+    <%= render partial: "table_header", locals: { user_group: "Mortal men" } %>
+    <div class="row">
+      <%= render @users.where(admin: false) %>
+    </div>
+
+    <%= will_paginate %>
   </div>
 </div>
-
-<%= render partial: "table_header", locals: { user_group: "Mortal men" } %>
-<div class="row">
-  <%= render @users.where(admin: false) %>
-</div>
-
-<%= will_paginate %>

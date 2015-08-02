@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-12">
     <% if @comment.errors.any? %>
-      <div id="errors">
+      <div class="alert-error alert">
         <p>
-          <%= pluralize(@comment.errors.count, "error") %> prevented this article from saving
+          <%= pluralize(@comment.errors.count, "error") %> prevented this comment from saving
         </p>
         <ul>
           <% @comment.errors.full_messages.each do |msg| %>
