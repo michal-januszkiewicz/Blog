@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @article.comments.build(comment_params)
     if @comment.save
-      flash[:success] = "Comment created"
+      flash[:success] = t(:comment_created)
       redirect_to @article
     else
       render template: 'articles/show', id: @article.id
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     @comment = @article.comments.find(@comment.id)
     respond_to do |format|
       if @comment.update_attributes(comment_params)
-        format.html { redirect_to(@article, notice: "Comment updated") }
+        format.html { redirect_to(@article, notice: t(:comment_updated)) }
         format.json { respond_with_bip(@comment)}
       else
         format.html { render action: "edit" }
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
 
   def destroy
     Comment.find(params[:id]).destroy
-    flash[:success] = "Comment deleted"
+    flash[:success] = t(:comment_deleted)
     redirect_to @article
   end
 
@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
   private
     def is_entitled?
       unless is_owner? || current_user.try(:admin)
-        flash[:danger] = "Sorry mate, you can't do this"
+        flash[:danger] = t(:unauthorized_access)
         redirect_to current_article
       end
     end

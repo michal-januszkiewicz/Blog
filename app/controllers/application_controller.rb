@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
   after_filter :store_location
 
   def store_location
@@ -23,6 +24,10 @@ class ApplicationController < ActionController::Base
     session[:previous_url] || root_path
   end
 
+  def set_locale
+    I18n.locale = :pl
+  end
+
   protected
 
     def configure_permitted_parameters
@@ -34,10 +39,9 @@ class ApplicationController < ActionController::Base
   private
     def require_admin
       unless current_user.try(:admin)
-        flash[:danger] = "Sorry mate, you can't do this"
+        flash[:danger] = t(:unauthorized_access)
         redirect_to root_url
       end
     end
-
 
 end

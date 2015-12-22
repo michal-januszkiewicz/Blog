@@ -1,4 +1,4 @@
-<% provide(:title, "Article") %>
+<% provide(:title, t(:article)) %>
 <%# link_to "Back", articles_path %>
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
@@ -6,21 +6,14 @@
       <h1>
         <%= @article.title %>
       </h1>
-      <div class="article-date">
-        <p>
-          Submitted: <%= @article.created_at.to_formatted_s(:long) %>
-        </p>
-      </div>
-      <%= simple_format(@article.text) %>
-      <div class="article-content">
-      </div>
+      <%= render @article %>
 
       <% if current_user.try(:admin) %>
         <div class="row">
           <div class="btn-group col-md-3 article-edit-delete">
-            <%= link_to "Edit", edit_article_path, class: "btn btn-primary btn-sm btn-article" %>
-            <%= link_to "Delete", @article, class: "btn btn-primary btn-sm btn-article", method: :delete,
-                        data: { confirm: "You sure?" } %>
+            <%= link_to t(:edit), edit_article_path, class: "btn btn-primary btn-sm btn-article" %>
+            <%= link_to t(:delete), @article, class: "btn btn-primary btn-sm btn-article", method: :delete,
+                        data: { confirm: t(:you_sure) } %>
           </div>
         </div>
       <% end %>
@@ -29,7 +22,7 @@
 
     <h2 class="comments-header">
       <a class="comments-toggle" href="#">
-        <%= @article.comments.count %> Comments<span class="caret"></span>
+        <%= t(:comments) %>(<%= @article.comments.count %>) <span class="caret"></span>
       </a>
     </h2>
     <hr/>

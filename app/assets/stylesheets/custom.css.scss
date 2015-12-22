@@ -151,8 +151,12 @@ textarea {
 
 }
 
+a {
+  color: #0babf4 !important;
+}
+
 a:hover {
-  color: #33CCFF !important;
+  color: #3cbcf6 !important;
 }
 
 .nav-link {
@@ -285,12 +289,13 @@ hr {
 /* buttons */
 
 .btn {
-  background-color: #3366FF !important;
+  color: #e7f7fe !important;
+  background-color: #0babf4 !important;
 }
 
 .btn:hover {
   color: white !important;
-  background-color: #2E5CE6 !important;
+  background-color: #3cbcf6 !important;
 }
 
 .btn-comment {

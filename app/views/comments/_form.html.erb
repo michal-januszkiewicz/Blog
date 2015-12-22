@@ -3,7 +3,7 @@
     <% if @comment.errors.any? %>
       <div class="alert-error alert">
         <p>
-          <%= pluralize(@comment.errors.count, "error") %> prevented this comment from saving
+          <%= t(:errors) %>(<%= @comment.errors.count %>)
         </p>
         <ul>
           <% @comment.errors.full_messages.each do |msg| %>
@@ -17,11 +17,11 @@
       <p>
         <%= f.label :content, class: "sr-only" %>
         <%= f.text_area :content, class: "form-control comment-text-area", rows: "3",
-                        placeholder: "Add your comment here" %>
+                        placeholder: t(:comment_placeholder) %>
       </p>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <p>
-        <%= f.submit "Add", class: "btn btn-primary" %>
+        <%= f.submit t(:add), class: "btn btn-primary" %>
       </p>
     <% end %>
   </div>

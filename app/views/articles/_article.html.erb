@@ -1,0 +1,11 @@
+<div class="article-date">
+  <p>
+    <%= t(:submitted) %>: <%= article.created_at.to_formatted_s(:long) %>
+  </p>
+</div>
+<div class="article-content">
+  <% renderer = Redcarpet::Render::HTML.new() %>
+  <% markdown = Redcarpet::Markdown.new(renderer, extensions = {}) %>
+  <% text = markdown.render(article.text) %>
+  <%= simple_format(text) %>
+</div>

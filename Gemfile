@@ -17,6 +17,7 @@ gem 'bcrypt'
 gem 'devise'
 gem 'autosize', '~> 1.1.18.4'
 gem 'best_in_place'
+gem 'redcarpet', '~> 3.3', '>= 3.3.3'
 
 group :development, :test do
   gem 'byebug'

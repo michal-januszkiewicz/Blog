@@ -1,10 +1,9 @@
-<% provide(:title, "Contact") %>
+<% provide(:title, t(:contact)) %>
 <div class="contact-page row">
   <div class="col-md-8 col-md-offset-1">
-    <h1>Contact</h1>
+    <h1><%= t(:contact) %></h1>
     <p>
-      If you see any issues on the page, have some suggestions about it or maybe
-      you would like to ask me some questions, please feel free to send me an email.
+      Jakiekolwiek pytania, uwagi, porady i wskazówki proszę słać na poniższy adres:
     </p>
     <% @admins.each do |admin| %>
       <p>email: <%= admin.email %></p>
