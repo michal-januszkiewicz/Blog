@@ -1,0 +1,14 @@
+<% provide(:title, t(:infos)) %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="infos-list">
+      <h1>
+        <% if current_user.try(:admin?) %>
+            <%= link_to t(:new_info), new_info_path, class: "new-info-link btn btn-primary" %>
+        <% end %>
+      </h1>
+      <%= render @infos %>
+      </div>
+  </div>
+</div>
+

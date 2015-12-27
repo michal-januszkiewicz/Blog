@@ -12,6 +12,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><%= link_to t(:home), root_path, class: 'nav-link home-link' %></li>
+          <li><%= link_to t(:infos), infos_path, class: 'nav-link infos-link' %></li>
           <li><%= link_to t(:articles), articles_path, class: 'nav-link articles-link' %></li>
           <% if current_user.try(:admin) %>
             <li><%= link_to t(:users), users_path, class: 'nav-link users-link' %></li>

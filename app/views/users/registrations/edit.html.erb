@@ -1,4 +1,4 @@
-<% provide(:title, "Edit account") %>
+<% provide(:title, t(:edit_account)) %>
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
 
@@ -6,10 +6,10 @@
                  html: { method: :put, class:  "edit-user-form" }) do |f| %>
       <%= devise_error_messages! %>
 
-      <h2>Edit</h2>
+      <h2><%= t(:edit) %></h2>
 
       <div class="field">
-        <%= f.label :name, class: "sr-only" %>
+        <%= f.label t(:name), class: "sr-only" %>
         <%= f.text_field :name, autofocus: true, class: "form-control" %>
       </div>
 
@@ -23,27 +23,27 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :password, class: "sr-only" %>
+        <%= f.label t(:password), class: "sr-only" %>
         <%= f.password_field :password, autocomplete: "off", class: "form-control",
-                             placeholder: "new password" %>
+                             placeholder: t(:p_new_password) %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation, class: "sr-only" %>
+        <%= f.label t(:password_confirmation), class: "sr-only" %>
         <%= f.password_field :password_confirmation, autocomplete: "off",
                              class: "form-control",
-                             placeholder: "new password confirmation" %>
-        <i>(You can leave these blank)</i>
+                             placeholder: t(:p_password_confirmation) %>
+        <i>(<%= t(:you_can_leave_these_blank) %>)</i>
       </div><br />
 
       <div class="field">
-        <%= f.label :current_password, class: "sr-only" %>
+        <%= f.label t(:current_password), class: "sr-only" %>
         <%= f.password_field :current_password, autocomplete: "off",
-                             class: "form-control", placeholder: "current password to confirm" %>
+                             class: "form-control", placeholder: t(:current_password_to_confirm) %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Update", class: "btn btn-lg btn-primary btn-block register-btn" %>
+        <%= f.submit t(:update), class: "btn btn-lg btn-primary btn-block register-btn" %>
       </div>
     <% end %>
 

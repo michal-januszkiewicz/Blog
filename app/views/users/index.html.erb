@@ -1,12 +1,12 @@
-<% provide(:title, 'All users') %>
+<% provide(:title, t(:all_users)) %>
 
 <div class="row">
   <div class="col-md-offset-1">
-    <h2>All users</h2>
+    <h2><%= t(:all_users) %></h2>
 
     <%= will_paginate %>
 
-    <%= render partial: "table_header", locals: { user_group: "Admins" } %>
+    <%= render partial: "table_header", locals: { user_group: t(:admins) } %>
     <div class="row">
       <%= render @users.where(admin: true) %>
     </div>
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <%= render partial: "table_header", locals: { user_group: "Mortal men" } %>
+    <%= render partial: "table_header", locals: { user_group: t(:mortal_men) } %>
     <div class="row">
       <%= render @users.where(admin: false) %>
     </div>

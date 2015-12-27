@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:edit, :create, :update, :destroy]
   end
 
+  resources :infos
+
   root 'static_pages#home'
   get  'contact' => 'static_pages#contact'
 

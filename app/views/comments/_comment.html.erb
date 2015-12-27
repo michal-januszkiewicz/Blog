@@ -10,23 +10,32 @@
   <div class="col-md-9">
     <div class="comment-info">
       <p>
-        <%= t(:submitted_by) %> <b><%= comment.user.name %></b>,
-        <%= comment.created_at.to_formatted_s(:long) %>
+        <%= t(:submitted_by) %>:
+        <b>
+        <% if comment.user %>
+            <%= comment.user.name %>
+        <% else %>
+            <%= t(:user_deleted) %>
+        <% end %>
+        </b>,
+        <%= comment.created_at.to_formatted_s(:db) %>
         <% if comment.created_at != comment.updated_at %>
-          , <%= t(:last_update) %>: <%= comment.updated_at.to_formatted_s(:long) %>
+          , <%= t(:last_update) %>: <%= comment.updated_at.to_formatted_s(:db) %>
         <% end %>
       </p>
     </div>
   </div>
-  <% if comment.user.id == current_user.try(:id) || current_user.try(:admin) %>
-    <div class="btn-group col-md-3 comment-edit-delete" >
-      <%= link_to t(:edit), edit_article_comment_path(@article.id, comment.id),
-                  class: "btn btn-primary btn-sm btn-comment edit-comment" %>
-      <%= link_to t(:delete), article_comment_path(@article.id, comment.id),
-                  class: "btn btn-primary btn-sm btn-comment",
-                  method: :delete,
-                  data: { confirm: t(:you_sure) } %>
-    </div>
+  <% if comment.user %>
+      <% if comment.user.id == current_user.try(:id) || current_user.try(:admin) %>
+        <div class="btn-group col-md-3 comment-edit-delete" >
+          <%= link_to t(:edit), edit_article_comment_path(@article.id, comment.id),
+                      class: "btn btn-primary btn-sm btn-comment edit-comment" %>
+          <%= link_to t(:delete), article_comment_path(@article.id, comment.id),
+                      class: "btn btn-primary btn-sm btn-comment",
+                      method: :delete,
+                      data: { confirm: t(:you_sure) } %>
+        </div>
+      <% end %>
   <% end %>
 </div>
 <% if @article.comments.last.id == comment.id %>

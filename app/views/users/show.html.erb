@@ -1,10 +1,10 @@
-<% provide(:title, @user.email) %>
+<% provide(:title, @user.name) %>
 <div class="row">
   <div class="col-md-offset-1">
     <% if current_user == @user %>
-      <h2>Your account</h2>
+      <h2><%= t(:my_account) %></h2>
     <% else %>
-      <h2>User account</h2>
+      <h2><%= t(:user_account) %></h2>
     <% end %>
 
     <%= render partial: "table_header", locals: {user_group: ""} %>
@@ -17,12 +17,12 @@
       </div>
       <div class="col-md-4">
         <% if @user.id == current_user.id %>
-          <%= link_to "edit", edit_user_registration_path %>
-          | <%= link_to "delete", registration_path(current_user),
-                        data: { confirm: "Are you sure?" }, method: :delete %>
+          <%= link_to t(:edit), edit_user_registration_path %>
+          | <%= link_to t(:delete), registration_path(current_user),
+                        data: { confirm: t(:you_sure) }, method: :delete %>
         <% else %>
-          <%= link_to "delete", registration_path(current_user),
-                      data: { confirm: "Are you sure?" }, method: :delete %>
+          <%= link_to t(:delete), registration_path(current_user),
+                      data: { confirm: t(:you_sure) }, method: :delete %>
         <% end %>
 
       </div>
