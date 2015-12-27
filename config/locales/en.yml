@@ -61,3 +61,45 @@ en:
   submitted_by:   "Submitted by"
   last_update:    "Last update"
   add:            "Add"
+
+  change_your_password:         "Change your password"
+  new_password:                 "New password"
+  p_new_password:               "new password"
+  confirm_new_password:         "Confirm new password"
+  p_confirm_new_password:       "confirm new password"
+  change_my_password:           "Change my password"
+  reset_password:               "Reset password"
+  forgot_your_password:         "Forgot your password?"
+  reset:                        "Reset"
+  edit_account:                 "Edit account"
+  edit:                         "Edit"
+  name:                         "Login"
+  password:                     "Password"
+  p_password:                   "password"
+  password_confirmation:        "Password confirmation"
+  p_password_confirmation:      "password confirmation"
+  you_can_leave_these_blank:    "You can leave these blank"
+  current_password_to_confirm:  "current password to confirm"
+  sign_up:                      "Sign up"
+  p_user_name:                  "login"
+  p_email_address:              "email address"
+  b_sign_up:                    "Sign up"
+  log_in:                       "Please log in"
+  p_user_name_or_email_address: "login or email address"
+  remember_me:                  "Remember me"
+  or:                           "or"
+  user_account:                 "User account"
+  actions:                      "Actions"
+  all_users:                    "All users"
+  admins:                       "Admins"
+  mortal_men:                   "Mortal men"
+  user_deleted:                 "user deleted"
+  infos:                        "News"
+
+
+
+
+
+
+
+
