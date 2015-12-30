@@ -1,0 +1,15 @@
+<% provide(:title, t(:edit_info)) %>
+<div class="row">
+  <div class="col-md-12">
+    <h2><%= t(:edit_info) %></h2>
+    <%= form_for @info, html: {class: "edit-info-form"} do |f| %>
+        <p>
+          <%= f.label t(:text), class: "sr-only" %>
+          <%= f.text_area :text, class: "form-control", rows: "10" %>
+        </p>
+        <p>
+          <%= f.submit t(:update), class: "btn btn-primary" %>
+        </p>
+    <% end %>
+  </div>
+</div>
