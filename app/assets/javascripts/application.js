@@ -20,6 +20,7 @@
 
 jQuery(document).ready(function() {
 
+
     $('.best_in_place').best_in_place();
 
     $('.edit-comment').on('click', function(e) {

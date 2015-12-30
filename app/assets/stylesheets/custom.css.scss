@@ -114,7 +114,7 @@ textarea {
   margin-left: 0;
 }
 
-.edit-article-form, .new-article-form {
+.edit-article-form, .new-article-form, .edit-info-form, .new-info-form{
   input[type="text"], textarea {
     background-color: $input_color;
   }
@@ -202,7 +202,7 @@ hr {
 
 /* article and comments */
 
-.articles-list {
+.articles-list, .infos-list {
   h1 {
     margin-bottom: 50px;
   }
@@ -257,7 +257,7 @@ hr {
   margin-left: 10px;
 }
 
-.comment-info {
+.comment-info, .info-info {
   font-size: 12px;
   margin-top: 10px;
 }

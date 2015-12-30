@@ -1,11 +1,15 @@
 <div class="row comment">
   <div class="col-md-12">
+    <% if current_user && comment.user.try(:id) == current_user.try(:id) || current_user.try(:admin) %>
       <%= best_in_place [@article, comment], :content , as: :textarea,
                         display_with: :simple_format,
                         ok_button:           t(:save),
                         ok_button_class:     "btn btn-primary btn-sm btn-comment ok-cancel-comment",
                         cancel_button:       t(:cancel),
                         cancel_button_class: "btn btn-primary btn-sm btn-comment ok-cancel-comment" %>
+    <% else %>
+        <%= simple_format(comment.content) %>
+    <% end %>
   </div>
   <div class="col-md-9">
     <div class="comment-info">
@@ -18,15 +22,14 @@
             <%= t(:user_deleted) %>
         <% end %>
         </b>,
-        <%= comment.created_at.to_formatted_s(:db) %>
+        <%= comment.created_at %>
         <% if comment.created_at != comment.updated_at %>
-          , <%= t(:last_update) %>: <%= comment.updated_at.to_formatted_s(:db) %>
+          , <%= t(:last_update) %>: <%= comment.updated_at %>
         <% end %>
       </p>
     </div>
   </div>
-  <% if comment.user %>
-      <% if comment.user.id == current_user.try(:id) || current_user.try(:admin) %>
+      <% if current_user && comment.user.try(:id) == current_user.try(:id) || current_user.try(:admin) %>
         <div class="btn-group col-md-3 comment-edit-delete" >
           <%= link_to t(:edit), edit_article_comment_path(@article.id, comment.id),
                       class: "btn btn-primary btn-sm btn-comment edit-comment" %>
@@ -36,7 +39,6 @@
                       data: { confirm: t(:you_sure) } %>
         </div>
       <% end %>
-  <% end %>
 </div>
 <% if @article.comments.last.id == comment.id %>
  <hr>

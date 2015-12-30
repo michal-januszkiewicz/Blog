@@ -95,6 +95,11 @@ en:
   mortal_men:                   "Mortal men"
   user_deleted:                 "user deleted"
   infos:                        "News"
+  new_info:                     "New info"
+  p_info:                       "Your info..."
+  info_created:                 "Info created"
+  info_updated:                 "Info updated"
+  info_deleted:                 "Info deleted"
 
 
 

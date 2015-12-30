@@ -3,13 +3,26 @@
     <div class="col-md-9">
       <div class="info-info">
         <p>
-          <%= info.created_at.to_formatted_s(:db) %>
+          <%= info.created_at %>
           <% if info.created_at != info.updated_at %>
-              , <%= t(:last_update) %>: <%= info.updated_at.to_formatted_s(:db) %>
+              , <%= t(:last_update) %>: <%= info.updated_at %>
           <% end %>
         </p>
       </div>
     </div>
-
+    <div class="col-md-12">
+      <%= info.text %>
+    </div>
+    <% if current_user.try(:admin) %>
+        <div class="btn-group col-md-3 comment-edit-delete" >
+          <%= link_to t(:edit), edit_info_path(info.id),
+                      class: "btn btn-primary btn-sm btn-info edit-info" %>
+          <%= link_to t(:delete), info,
+                      class: "btn btn-primary btn-sm btn-info",
+                      method: :delete,
+                      data: { confirm: t(:you_sure) } %>
+        </div>
+    <% end %>
   </div>
 </div>
+<hr>

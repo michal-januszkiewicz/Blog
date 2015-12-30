@@ -74,6 +74,11 @@ pl:
   mortal_men:                   "Śmiertelnicy"
   user_deleted:                 "użytkownik usunięty"
   infos:                        "Aktualności"
+  new_info:                     "Nowe info"
+  p_info:                       "Twoje info..."
+  info_created:                 "Info zapisane"
+  info_updated:                 "Info zapisane"
+  info_deleted:                 "Info usunięte"
 
 
 
