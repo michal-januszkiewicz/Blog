@@ -37,17 +37,17 @@ ActiveRecord::Schema.define(version: 20151227201545) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "infos", force: :cascade do |t|
-    t.text     "text"
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "text",       limit: 65535
+    t.string   "title",      limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "updates", force: :cascade do |t|
-    t.text     "text"
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "text",       limit: 65535
+    t.string   "title",      limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
