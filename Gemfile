@@ -18,7 +18,7 @@ gem 'devise'
 gem 'autosize', '~> 1.1.18.4'
 gem 'best_in_place'
 gem 'redcarpet', '~> 3.3', '>= 3.3.3'
-
+gem 'figaro'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

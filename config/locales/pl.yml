@@ -80,6 +80,10 @@ pl:
   info_updated:                 "Info zapisane"
   info_deleted:                 "Info usunięte"
   edit_info:                    "Edytuj info"
+  password_reset:               "Resetuj hasło"
+  reset_password_instructions:  "Kliknij na link poniżej aby zresetować swoje hasło:"
+  reset_password_wrong_recipient_msg: "Jeśli nie chcesz zresetować swojego hasła lub nie zleciłeś wysłania tego emaila, zignoruj go proszę, a Twoje hasło pozostanie bez zmian."
+  change_password:              "Zmień moje hasło"
 
 
 
