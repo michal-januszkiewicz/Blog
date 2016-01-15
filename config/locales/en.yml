@@ -101,6 +101,10 @@ en:
   info_updated:                 "Info updated"
   info_deleted:                 "Info deleted"
   edit_info:                    "Edit info"
+  password_reset:               "Reset password"
+  reset_password_instructions:  "To reset your password click the link below:"
+  reset_password_wrong_recipient_msg: "If you did not request your password to be reset, please ignore this email and your password will stay as it is."
+  change_password:              "Change my password"
 
 
 
