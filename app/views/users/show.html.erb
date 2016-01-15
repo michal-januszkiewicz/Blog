@@ -7,7 +7,7 @@
       <h2><%= t(:user_account) %></h2>
     <% end %>
 
-    <%= render partial: "table_header", locals: {user_group: ""} %>
+    <%= render "table_header", user_group: "" %>
     <div class="row">
       <div class="col-md-4">
         <%= @user.name %>

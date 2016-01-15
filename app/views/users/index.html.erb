@@ -6,7 +6,7 @@
 
     <%= will_paginate %>
 
-    <%= render partial: "table_header", locals: { user_group: t(:admins) } %>
+    <%= render "table_header", user_group: t(:admins) %>
     <div class="row">
       <%= render @users.where(admin: true) %>
     </div>
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <%= render partial: "table_header", locals: { user_group: t(:mortal_men) } %>
+    <%= render "table_header", user_group: t(:mortal_men) %>
     <div class="row">
       <%= render @users.where(admin: false) %>
     </div>

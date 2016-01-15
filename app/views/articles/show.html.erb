@@ -6,7 +6,7 @@
       <h1>
         <%= @article.title %>
       </h1>
-      <%= render @article %>
+      <%= render @article, length: 'full' %>
 
       <% if current_user.try(:admin) %>
         <div class="row">

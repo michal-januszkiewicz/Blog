@@ -6,6 +6,10 @@
 <div class="article-content">
   <% renderer = Redcarpet::Render::HTML.new() %>
   <% markdown = Redcarpet::Markdown.new(renderer, extensions = {}) %>
-  <% text = markdown.render(article.text) %>
+  <% text = article.text %>
+  <% if length == 'excerpt' %>
+    <% text = sanitize(truncate(text, length: 1200)) %>
+  <% end %>
+  <% text = markdown.render(text) %>
   <%= simple_format(text) %>
 </div>
