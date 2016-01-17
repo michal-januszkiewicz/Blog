@@ -20,8 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  will_paginate:
+    previous_label: "Previous"
+    next_label:     "Next"
 
+  hello: "Hello world"
   comment_placeholder: "Add your comment here..."
   article_created: "Article created"
   unauthorized_access: "Access denied"
@@ -105,6 +108,7 @@ en:
   reset_password_instructions:  "To reset your password click the link below:"
   reset_password_wrong_recipient_msg: "If you did not request your password to be reset, please ignore this email and your password will stay as it is."
   change_password:              "Change my password"
+  something_went_wrong:         "Something went wrong."
 
 
 

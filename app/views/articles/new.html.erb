@@ -14,7 +14,7 @@
       </div>
     <% end %>
     <h2><%= t(:new_article) %></h2>
-    <%= form_for :article, url: articles_path, html: {class: "new-article-form"} do |f| %>
+    <%= form_for :article, url: articles_path, html: { class: "new-article-form" } do |f| %>
       <p>
         <%= f.label t(:title) %><br>
         <%= f.text_field :title, class: "form-control" %>

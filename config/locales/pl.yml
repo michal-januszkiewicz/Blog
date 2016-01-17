@@ -1,6 +1,33 @@
 pl:
-  hello: "Witaj świecie"
+  will_paginate:
+    previous_label: "Poprzednia"
+    next_label: "Następna"
+  activerecord:
+    attributes:
+      user:
+        name: "Login"
+        email: "Adres email"
+        password: "Hasło"
+        password_confirmation: "Potwierdzenie hasła"
+        current_password: "Obecne hasło"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "nie może być pusty."
+            email:
+              blank: "nie może być pusty."
+            password:
+              blank: "nie może być puste."
+              too_short: "musi mieć co najmniej 4 znaki."
+            password_confirmation:
+              confirmation: "musi być takie samo nowe jak hasło."
+            current_password:
+              blank: "musi zostać podane aby potwierdzić zmiany."
+              invalid: "jest nieprawidłowe."
 
+  hello: "Witaj świecie"
   comment_placeholder: "Dodaj komentarz..."
   article_created: "Utworzono nowy artykuł"
   unauthorized_access: "Nie masz dostępu do tej strony"
@@ -84,6 +111,7 @@ pl:
   reset_password_instructions:  "Kliknij na link poniżej aby zresetować swoje hasło:"
   reset_password_wrong_recipient_msg: "Jeśli nie chcesz zresetować swojego hasła lub nie zleciłeś wysłania tego emaila, zignoruj go proszę, a Twoje hasło pozostanie bez zmian."
   change_password:              "Zmień moje hasło"
+  something_went_wrong:         "Coś poszło nie tak."
 
 
 

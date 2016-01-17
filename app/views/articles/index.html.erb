@@ -8,7 +8,6 @@
         <% end %>
       </h1>
       <% @articles.each do |article| %>
-
         <div class="article">
           <h2><%= link_to article.title, article %></h2>
           <%= render article, length: 'excerpt' %>
@@ -35,6 +34,9 @@
         </div>
         <hr>
       <% end %>
+    </div>
+    <div class="digg_pagination">
+        <%= will_paginate @articles %>
     </div>
   </div>
 </div>

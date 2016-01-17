@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
       flash[:success] = t(:comment_created)
       redirect_to @article
     else
+      flash[:error] = t(:something_went_wrong)
       render template: 'articles/show', id: @article.id
     end
   end

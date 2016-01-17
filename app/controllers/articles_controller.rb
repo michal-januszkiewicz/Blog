@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :current_article, only: [:edit, :update]
 
   def index
-    @articles = Article.all.order('created_at DESC')
+    @articles = Article.order('created_at DESC').paginate(page:params[:page], per_page: 4)
     @comment  = Comment.new
   end
 
