@@ -15,6 +15,7 @@ class InfosController < ApplicationController
   end
 
   def create
+    @info = Info.new(info_params)
     if @info.save
       flash[:success] = t(:info_created)
       redirect_to infos_url
