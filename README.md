@@ -1,34 +1,39 @@
 # Setup
-1. Create secrets.yml file
+1. Install dependencies
+```
+bundle install
+```
+
+2. Create secrets.yml file
 ```
 mv /config/secrets.example.yml config/secrets.yml
 ```
 
-2. Generate one key with
+3. Generate one key with
 ```
 rake secret
 ```
 and add it to the secrets.yml file
 
-3. Create application.yml file
+4. Create application.yml file
 ```
 mv /config/application.example.yml /config/application.yml
 ```
 and set up the variables with your email account data
 
-4. Set up the database
+5. Set up the database
 ```
 rake db:migrate
 ```
 
-5. Deploy the app or run rails server
+6. Deploy the app or run rails server
 ```
 rails s
 ```
 
-6. Create admin user using the application or rails console
+7. Create admin user using the application or rails console
 
-7. Add admin privileges for created user
+8. Add admin privileges for created user
 ```
 rails c
 u = User.first
@@ -37,4 +42,4 @@ u.save
 exit
 ```
 
-8. Now as admin user you have unlimited power.
+9. Now as admin user you have unlimited power.
